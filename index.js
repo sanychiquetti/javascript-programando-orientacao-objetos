@@ -4,22 +4,16 @@ import {ContaCorrente} from "./ContaCorrente.js"
 
 //aqui na index fica só a execução
 // para usarmos essa classe criamos um new cliente para cada cliente
-const cliente1 = new Cliente()
-cliente1.nome = 'Sany'
-cliente1.cpf = 11122233309
-cliente1.rg = 12365437
+const cliente1 = new Cliente("Sany", 11122233309, 13268954)
+const cliente2 = new Cliente("Alice", 73265418, 65981256)
 
-const cliente2 = new Cliente()
-cliente2.nome = 'Alice'
-cliente2.cpf = 88822233309
-cliente2.rg = 72361547
+// vamos criar uma variavel para saber quantas contas temos:
+const contaCorrenteSany = new ContaCorrente(1001, cliente1)
 
-//vamo criar uma new váriavel de conta corrente
-const contaCorrenteSany = new ContaCorrente()
-contaCorrenteSany.agencia = 1001
+contaCorrenteSany.depositar(500) // fazendo um depósito
+const conta2 = new ContaCorrente(102, cliente2)
 
-contaCorrenteSany.depositar(300) // quero reatribuir valor para minha conta - deposito
+let valor = 200
+contaCorrenteSany.transferir(valor, conta2) // transferindo de uma conta para outra
 
-const valorSacado = contaCorrenteSany.sacar(50) //aqui vamos guardar o valor sacado numa várivel
-
-console.log(contaCorrenteSany)
+console.log(ContaCorrente.numeroDeContas)
